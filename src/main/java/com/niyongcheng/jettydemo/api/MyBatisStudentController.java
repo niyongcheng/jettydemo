@@ -32,7 +32,8 @@ public class MyBatisStudentController {
         return this.studentService.queryById(id);
     }
 
-    @RequestMapping(value = "addOne", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "addOne", method = RequestMethod.POST, consumes = MediaType.ALL_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public Student addOne(@RequestBody  Student student){
         return  this.studentService.insert(student);
     }
