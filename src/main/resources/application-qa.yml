@@ -50,7 +50,7 @@ spring:
             log-slow-sql: true
             slow-sql-millis: 2000
 server:
-  port: 8088
+  port: 7001
   servlet:
     context-path: /
 
@@ -66,4 +66,4 @@ mybatis:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://admin:admin@localhost:8090/eureka
+      defaultZone: http://admin:admin@localhost:7000/eureka
