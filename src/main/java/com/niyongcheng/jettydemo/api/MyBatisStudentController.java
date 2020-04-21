@@ -5,10 +5,7 @@ import com.niyongcheng.jettydemo.entity.Student;
 import com.niyongcheng.jettydemo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1")
@@ -26,13 +23,13 @@ public class MyBatisStudentController {
      * @param id 主键
      * @return 单条数据
      */
-    @RequestMapping(value = "selectOne", method = RequestMethod.GET, consumes = MediaType.ALL_VALUE,
+    @RequestMapping(value = "student/{id}", method = RequestMethod.GET, consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public Student selectOne(Integer id) {
+    public Student selectOne(@PathVariable("id") Integer id) {
         return this.studentService.queryById(id);
     }
 
-    @RequestMapping(value = "addOne", method = RequestMethod.POST, consumes = MediaType.ALL_VALUE,
+    @RequestMapping(value = "student", method = RequestMethod.POST, consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public Student addOne(@RequestBody  Student student){
         return  this.studentService.insert(student);
